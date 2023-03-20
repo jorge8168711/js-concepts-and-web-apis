@@ -15,10 +15,9 @@ import { createUser, getRandomJoke } from './fetch-http-provider.js'
   // ===============================================================================
 
   // prev XMLHttpRequest
-  const request = new XMLHttpRequest();
+  const request = new XMLHttpRequest()
   // configure the request, method | url | is async
-  request.open('GET', 'https://reqres.in/api/users/', true);
-
+  request.open('GET', 'https://reqres.in/api/users/', true)
 
   /* POST examples
   request.open('POST', 'https://reqres.in/api/users/', true);
@@ -26,18 +25,16 @@ import { createUser, getRandomJoke } from './fetch-http-provider.js'
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.send("foo=bar&lorem=ipsum");
 
-
   request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
   request.send(JSON.stringify({ "email": "mail@user.com" }));
   */
 
   request.onreadystatechange = () => {
     if (request.readyState === 4) {
-      const response = JSON.parse(request.response);
-      console.log({response})
+      const response = JSON.parse(request.response)
+      console.log({ response })
     }
   }
 
   request.send(null)
 })()
-

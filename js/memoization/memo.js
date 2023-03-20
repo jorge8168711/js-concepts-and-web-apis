@@ -4,24 +4,22 @@
 // of memoization:
 
 class Dog {
-  name;
-  constructor(name) {
-    this.name = name;
+  name
+  constructor (name) {
+    this.name = name
   }
 }
 
-
 const values = {}
-function addOne(num) {
+function addOne (num) {
   if (values[num] === undefined) {
     values[num] = num + 1 // <-- here's the computation
   }
   return values[num]
 }
 
-
 const dogs = {}
-function getDog(name) {
+function getDog (name) {
   if (dogs[name] === undefined) {
     dogs[name] = new Dog(name)
   }
@@ -32,13 +30,12 @@ const dog1 = getDog('sam')
 const dog2 = getDog('sam')
 console.log(dog1 === dog2) // true
 
-
 // generic abstraction
-function memoize(callback) {
+function memoize (callback) {
   const cache = {}
 
-  console.log({cache})
-  return function memoized(arg) {
+  console.log({ cache })
+  return function memoized (arg) {
     if (cache[arg] === undefined) {
       cache[arg] = callback(arg)
     }

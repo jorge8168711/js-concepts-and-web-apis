@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs')
 
 /*
   EXAMPLES OF THE USAGE OF THE PROMISE OBJECT.
@@ -43,16 +43,16 @@ const fs = require('fs');
 const readFilePromise = (path) => new Promise((resolve, reject) => {
   fs.readFile(path, 'utf8', (error, result) => {
     if (error) {
-      reject(error);
+      reject(error)
     } else {
-      resolve(result);
+      resolve(result)
     }
-  });
-});
+  })
+})
 
 const fileCOntent = readFilePromise(`${__dirname}/data.txt`)
   .then((result) => console.log(result))
-  .catch((error) => console.error(`Failed to read data ${error}`));
+  .catch((error) => console.error(`Failed to read data ${error}`))
 
 const HEROES = {
   batman: {
@@ -66,9 +66,8 @@ const HEROES = {
   hulk: {
     id: 3,
     name: 'Hulk'
-  },
-};
-
+  }
+}
 
 /*
 function getHero (id) {
@@ -86,22 +85,22 @@ function getHero (id) {
 
 // automatically returns a promise with the returned value
 async function getHero (id) {
-  const hero = HEROES[id];
+  const hero = HEROES[id]
 
   if (!hero) {
     throw new Error(`The hero ${id} doesn't exist.`)
   };
 
-  return HEROES[id];
+  return HEROES[id]
 }
 
 async function printHeroesList () {
-  const table = [];
-  const promisesArr = ['batman', 'spiderman', 'hulk'].map(h => getHero(h));
+  const table = []
+  const promisesArr = ['batman', 'spiderman', 'hulk'].map(h => getHero(h))
 
   // FOR AWAIT
-  for await(const hero of promisesArr) {
-    table.push(hero);
+  for await (const hero of promisesArr) {
+    table.push(hero)
   }
 
   // if await
@@ -112,14 +111,14 @@ async function printHeroesList () {
 
 const wait = (ms) => new Promise((resolve) => setTimeout(() => resolve(`${ms}ms`), ms));
 
-(async() => {
+(async () => {
   try {
-    const promises = [wait(1000), wait(2000), wait(4000)];
+    const promises = [wait(1000), wait(2000), wait(4000)]
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race
-    const allPromises = await Promise.race(promises);
-    const h = await getHero('batman');
+    const allPromises = await Promise.race(promises)
+    const h = await getHero('batman')
 
-    printHeroesList();
+    printHeroesList()
   } catch (error) {
     console.log(error)
   }

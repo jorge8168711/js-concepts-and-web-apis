@@ -1,11 +1,11 @@
-class Singleton {
-  static instance = null;
+export class Singleton {
+  static instance = null
   name = ''
 
-  constructor(name = '') {
+  constructor (name = '') {
     if (Singleton.instance) return Singleton.instance
 
-    Singleton.instance = this;
-    this.name = name;
+    Singleton.instance = this
+    this.name = name
   }
 }
