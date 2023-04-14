@@ -67,12 +67,4 @@ class CustomArray {
   }
 }
 
-const arr = new CustomArray()
-arr.push('jorge')
-arr.push('manuel')
-arr.push('luis')
-arr.push('dan')
-arr.shift()
-arr
-
 module.exports = CustomArray
