@@ -7,21 +7,16 @@
   │ 3 ├─►10 ├─► 1 ├─► 7 ├───►null
   └───┘ └───┘ └───┘ └───┘
 
-  Linked List son simplemente un conjunto de nodos ordenados que contienen los valores
-  que necesitemos (numbers, strings, boolean, etc). Cada uno tiene un valor y una referencia
-  a un siguiente nodo.
+  A singly linked list is a linear data structure in which the
+  elements are not stored in contiguous memory locations and each
+  element is connected only to its next element using a pointer.
 
-  Métodos
-    Prepend ⇒ Agregar un nodo al inicio
-    Append ⇒ Agregar un nodo al final
-    Lookup / Search ⇒ Buscar un nodo
-    Insert ⇒ insertar un nodo en la lista
-    Delete ⇒ Borrar un nodo
-
-    Singly Linked List
-    Tenemos un nodo, Se compone de dos factores
-      - Valor
-      - Valor del Next
+  Methods:
+    Prepend ⇒ Add node to the beginning of the list
+    Append ⇒ Add node to the end of the list
+    Lookup / Search ⇒ search for a node in the list
+    Insert ⇒ Inset a node in a specific position
+    Delete ⇒ Delete a node in a specific position
 
    ┌────┐  ┌────┐  ┌────┐  ┌────┐
    │    │  │    │  │    │  │    │
@@ -92,24 +87,24 @@ class SinglyLinkedList {
 
   lookup (index) {
     let currentNode = this.head
-    let counter = 0;
-    if (index < 0 || index >= this.length) return null;
-    
-    while(counter !== index) {
+    let counter = 0
+    if (index < 0 || index >= this.length) return null
+
+    while (counter !== index) {
       counter += 1
       currentNode = currentNode.next
     }
-    
+
     return currentNode
   }
-  
-  delete(index) {
+
+  delete (index) {
     if (index === 0) {
       this.head = this.head.next
       this.length -= 1
       return this
     }
-    
+
     const firstNode = this.lookup(index - 1)
     const secondNode = this.lookup(index)
     firstNode.next = secondNode.next
@@ -124,4 +119,3 @@ slList.append(3)
 slList.append(8)
 
 slList.delete(3)
-

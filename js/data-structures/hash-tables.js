@@ -1,3 +1,46 @@
+/*
+  Hash Tables are a data structure that allow you to create
+  a list of paired values. You can then retrieve a certain value by
+  using the key for that value, which you put into the table beforehand.
+
+  A Hash Table transforms a key into an integer index using a
+  hash function, and the index will decide where to store the key/value pair in memory:
+  Structure of a Hash Table
+                                     Buckets
+                           ───────────────────────────
+
+                            Hash    Key          Value
+                           ┌──────┬─────────────┬─────┐
+                           │ 234  │  Other      │ 10  │
+                           ├──────┼─────────────┼─────┤
+ Key: Mandarinas           │ 235  │             │     │
+ Value: 20                 ├──────┼─────────────┼─────┤
+       │      ┌───────────►│ 236  │Mandarinas   │ 20  ├──────►  Bucket
+       │      │            ├──────┼─────────────┼─────┤
+┌──────▼──────┴─┐          │ 237  │             │     │
+│               │          └──────┴─────────────┴─────┘
+│   Hash        │
+│   Function    │
+└───────────────┘
+  The hash function is the one that will generate the address for the key
+
+  Example of the data in a hash table
+  HashTable {
+    data: [
+      // bucket with 2 elements, when the key produces the same hash
+      // the items are pushed to the same bucket
+      [
+        [ 'Diego', { name: 'Diego', id: 1 } ],
+        [ 'Mariana', { name: 'Mariana', id: 2 } ]
+      ],
+      <1 empty item>,
+      // bucket with 1 element
+      [ [ 'Javier', { name: 'Javier', id: 3 } ] ],
+      <7 empty items>
+    ]
+  }
+*/
+
 class HashTable {
   constructor (size) {
     this.data = new Array(size)
@@ -75,5 +118,5 @@ class HashTable {
     return this.data
   }
 }
-
+const a = new HashTable(10)
 module.exports = HashTable
