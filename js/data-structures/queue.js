@@ -42,14 +42,14 @@ export class Queue {
 
   // remove element from the front of the queue
   dequeue () {
-    if (!this.length) return;
+    if (!this.length) return
     if (this.length === 1) {
       this.front = null
       this.rear = null
     } else {
       this.front = this.front.next
     }
-    
+
     this.length -= 1
     return this
   }
@@ -61,11 +61,3 @@ export class Queue {
 }
 
 const q = new Queue()
-q.enqueue(1)
-q.enqueue(2)
-q.enqueue(3)
-q.enqueue(4)
-q.enqueue(5)
-q.enqueue(6)
-q.dequeue()
-q.dequeue()
