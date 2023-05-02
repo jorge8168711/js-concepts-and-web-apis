@@ -4,6 +4,7 @@ const arrSample = ['abc', 'cba', 'ddd']
 
 function * sampleGenerator (arr) {
   for (let i = 0; i < arr.length; i += 1) {
+    // The yield operator is used to pause and resume a generator function.
     yield arr[i]
   }
 }
