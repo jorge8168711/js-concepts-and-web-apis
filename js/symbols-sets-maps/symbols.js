@@ -1,3 +1,10 @@
+// Symbol is a built-in object whose constructor returns a symbol primitive — also
+// called a Symbol value or just a Symbol — that's guaranteed to be unique. Symbols are
+// often used to add unique property keys to an object that won't collide with keys
+// any other code might add to the object, and which are hidden from any mechanisms
+// other code will typically use to access the object. That enables a form of weak
+// encapsulation, or a weak form of information hiding.
+
 // To create a new primitive Symbol, you write Symbol() with an optional string as its description,
 // the symbols doesn't have a constructor
 // const sym = new Symbol(); // TypeError
